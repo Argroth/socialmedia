@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+  <% include ./partials/navbar.ejs %>
+  <ul>
+
+    <div class="container-fluid">
+   <div class="row">
+      <div class="col-md-11" id="news">
+<table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th>E-mail</th>
+      <th>Rola</th>
+      <th>Profil</th>
+      <th>Usuń</th>
+      <th>Edytuj</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for (var i=0; i< user.length; i++) {%>
+    <tr>
+      <th scope="row"></th>
+      <td><%= user[i]._id %></td>
+      <td><%= user[i].local.email %></td>
+      <td><%= user[i].local.role %></td>
+      <td><a href="/users/<%= user[i]._id%>"><button type="button" class="btn btn-default">Profil</button></a></td>
+      <td><a href="/delete/user/<%= user[i]._id%>" onclick="return confirm('Czy na pewno chcesz usunąć użytkownika?')"><button type="button" class="btn btn-danger">Usuń</button></a></td> 
+      <td><a href="/edit/user/<%= user[i]._id%>"><button type="button" class="btn btn-info">Edit</button></a></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+  </body>
+
+</html>

@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+       <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+  <% include ./partials/navbar.ejs %>
+
+    <div class="container-fluid">
+   <div class="row">
+      <div class="col-md-12" id="news">
+      <% for (var i=0; i< post.length; i++) {%>
+        <div id="news">
+          <h2 id="title"><%= post[i].title %></h2>
+           <hr class="postline">
+            <p id="newsFull"><%= post[i].content %></p>
+        </div>
+        <% } %>
+      </div>
+
+
+
+
+
+
+
+
+</body>
+</html>

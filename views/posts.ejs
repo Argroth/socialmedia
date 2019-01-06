@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+  <% include ./partials/navbar.ejs %>
+
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+<form action="/post" role="form" method="post" id="newsform">
+    <input type="text" class="addnews" name="title" placeholder="Tytuł"/><br>
+    <textarea rows="6" cols="100" name="content" placeholder="Treść"/></textarea><br>
+    <input type="submit" value="Wyślij" />
+</form>
+</div>
+</div>
+
+   <div class="row">
+      <div class="col-md-12" id="newsy">
+      <% for (var i=0; i< post.length; i++) {%>
+        <div class="news">
+          <h2 id="title"><%= post[i].title %></h2>
+           <hr class="postline">
+            <p><%= post[i].content %></p>
+            <div class="bottom">
+                <a href="/edit/post/<%= post[i]._id%>"><button>Edytuj</button></a>                
+                <a href="/delete/post/<%= post[i]._id%>" onclick="return confirm('Czy na pewno chcesz usunąć wiadomość?')"><button>Usuń</button></a>
+            </div>
+        </div>
+        <% } %>
+      </div>
+
+
+  </body>
+</html>
+
+

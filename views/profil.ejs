@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+  <% include ./partials/navbar.ejs %>
+
+<% if (info.error == 404) { %>
+Brak profilu
+<% } else { %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2" id="logreg">
+    <div class="col_md-4 col-md-offset-5">
+<h1><%=info.nazwa%></h1><br>
+<img src="http://avatar.leagueoflegends.com/<%=info.platforma%>/<%=info.nazwa%>.png"><br>
+<p>Poziom: <%=info.lvl%></p>
+<p>Serwer: <%=info.platforma%></p>
+</div>
+
+</br></br>
+
+<h2>Najlepsza postać</h2>
+<img src="http://ddragon.leagueoflegends.com/cdn/6.21.1/img/champion/<%=info.masnazwa%>.png"><br>
+Postać: <%=info.masnazwa%><br>
+Poziom masterii: <%=info.maslvl%><br>
+Punkty masterii: <%=info.maspts%><br>
+Posiadane tokeny: <%=info.mastoken%><br>
+
+
+
+<% } %>
+<br>
+<% if (info.err > 0) {%>
+<h3>Brak rozegranych gier rankingowych</h3>
+<% } else { %>
+<p>Poziom rankingowy: <%= info.solo5.tier %> <%= info.solo5.division %></p>
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Gry rankingowe</th>
+      <th>Wygrane/Przegrane</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Solo</th>
+      <td><%= info.solo5.wins %>/<%= info.solo5.losses %></td>
+    </tr>    
+    <tr>
+      <th scope="row">Team 5 vs 5</th>
+      <td><%= info.team5 %>/<%= info.team5 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Solo 3 vs 3</th>
+      <td><%= info.solo3 %>/<%= info.solo3 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Team 3 vs 3</th>
+      <td><%= info.team3 %>/<%= info.team3 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Flex</th>
+      <td><%= info.flex %>/<%= info.flex %></td>
+    </tr>
+  </tbody>
+</table>
+<% } %>
+
+
+
+
+
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Gry nierankingowe</th>
+      <th>Wygrane</th>
+      <th>Przegrane</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Gry normalne</th>
+      <td><%=info.nw%></td>
+      <td><%=info.rs5l%></td>
+    </tr>
+    <tr>
+      <th scope="row">5 vs 5</th>
+      <td><%=info.rs5%></td>
+      <td><%=info.rs5l%></td>
+    </tr>
+    <tr>
+      <th scope="row">Team 5 vs 5</th>
+      <td><%=info.rt5%></td>
+      <td><%=info.rt5l%></td>
+    </tr>
+    <tr>
+      <th scope="row">Team 3 vs 3</th>
+      <td><%=info.rt3%></td>
+      <td><%=info.rt3l%></td>
+    </tr>
+  </tbody>
+</table>
+
+</div></div>
+</body>
+</html>

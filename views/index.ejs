@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+  <% include ./partials/navbar.ejs %>
+  
+  <div class="container-fluid">
+   <div class="row">
+      <div class="col-md-10" id="newsy">
+      <% for (var i=0; i< posts.length; i++) {%>
+        <div class="news">
+          <h2 id="title"><%= posts[i].title %></h2>
+           <hr class="postline">
+            <p id="main"><%= posts[i].content %></p>
+            <div class="bottom">
+            <a href="/posts/<%= posts[i]._id%>"><span class="label label-default">Czytaj więcej</span></a>
+            </div>
+        </div>
+        <% } %>
+      </div>
+
+
+
+      <div class="col-md-2" id="divrotacja">
+      <h3>Rotacja tygodniowa:
+      <% for(var i=0; i<info.rot.length; i++) { %>  
+        <img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/<%= info.rot[i] %>.png" class="rotacja">     
+      <% } %>
+      </div>
+  </div>
+
+  </body>
+</html>
+
+

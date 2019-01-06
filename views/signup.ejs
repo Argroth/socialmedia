@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+  <% include ./partials/navbar.ejs %>
+  
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4" id="logreg">
+    <h1>Rejestracja:</h1><br>
+        <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+        <form action="/signup" method="post">
+            <div class="form-group">
+                <label for="email">Adres e-mail:</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Hasło:</label>
+                <input type="password" class="form-control" name="password" id="pwd">
+            </div>
+            <button type="submit" class="btn btn-default">Zarejestruj</button>
+
+        </form>
+    </div>
+</div>
+
+  </body>
+</html>
+
+
+
+

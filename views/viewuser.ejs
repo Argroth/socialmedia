@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>  
+  <% include ./partials/navbar.ejs %>
+
+<h1>Witaj na profilu użytkownika <%= user[0].local.email %></h1>
+
+<h2>Posty</h2>
+    <div class="container-fluid">
+   <div class="row">
+      <div class="col-md-10" id="newsy">
+      <% for (var i=0; i< walls.length; i++) {%>
+        <div class="news">
+          <h2 id="title"><%= walls[i].title %></h2>
+           <hr class="postline">
+            <p id="main"><%= walls[i].content %></p>
+            
+        </div>
+        <% } %>
+      </div>
+
+
+  </body>
+
+
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <a href="/"><img src="l2.png" alt=""></a>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Strona główna</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard">Dashboard</a>
+                        
+                    </li>
+                    <li>
+                    <a href="/logout">Wyloguj</a>
+                    </li>
+                    <li>
+                    <a href="localhost:8080">Mapa</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+  
+<div>
+  
+
+
+  </body>
+</html>
+<div class="row">
+<div class="col-md-4 col-md-offset-4" id="logreg">
+
+<h1>Witaj! <strong><%= user.local.email %></strong></h1><br>
+<span class="label label-primary"><%= user.local.role %></span>
+<% if (user.local.role == "Admin") { %>
+  <h3><a href="/posts">Posty</a></h3>
+  <h3><a href="/users">Użytkownicy</a></h3>
+  <% } %>
+
+ 
+<h2>Sprawdź swój profil w grze lub aktualnie graną grę: </h2>
+ <form action="/s" method="get" id="gamesearch">
+  <input class="form-control" id="summoner" name="summoner"  type="text" placeholder="Summoner Name">
+  <br> 
+<select id="realm" name="realm" class="form-control">
+  <optgroup label="Europe">
+    <option value="EUNE">EU Nordic & East</option>
+    <option value="EUW">EU West</option>
+</select>
+<br>
+<button class="btn btn-primary" type="submit" name="funkcja" value="profil">profil</button>
+<button class="btn btn-danger" type="submit" name="funkcja" value="gra">gra</button>
+</optgroup>
+</form>
+
+
+<h2>Dodaj post na swojej ścianie!</h2>
+<form action="/blog/<%= user._id %>" role="form" method="post">
+    <input type="text" class="form-control" name="title" placeholder="Tytuł"/><br>
+    <textarea class="form-control" rows="6" cols="60" name="content" placeholder="Treść"/></textarea><br>
+    <input type="submit" value="Wyślij" onclick="return confirm('Dodać?')"/>
+</form>
+</div>
+</div>
+  </body>
+<ul>
+<%= walls %>
+</ul>
+ 

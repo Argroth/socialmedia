@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <% include ./partials/head.ejs %>
+  </head>
+  <body>
+  <% include ./partials/navbar.ejs %>
+  
+<% if(info.errors == 404) { %>
+Nie znaleziono gry
+<%} else {%>
+<% if (info.error == 1) { %>
+ brak banów
+ <%} else { %>
+   <div class="row">
+    <div class="col-md-12" id="logreg">
+    <div class="col_md-4 col-md-offset-1">
+<h2>Bany drużyny niebieskiej</h2>
+<% for(var i=0; i<info.bnd.length, i<3; i++) { %>
+  		<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/<%=info.bnd[i]%>.png">
+<% } %>
+<br>
+<h2>Bany drużyny czerwonej</h2>
+<% for(var i=3; i<info.bnd.length, i<6; i++) { %>
+  		<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/<%=info.bnd[i]%>.png">
+<% } %>
+
+
+    <table class="table">
+  <thead class="thead-inverse">
+<tr>
+      <th>Drużyna niebieska</th>
+      <th>Postać</th>
+      <th>Wygrane</th>
+      <th>Przegrane</th>
+    </tr>
+    </thead>
+    <% for(var i=0; i<info.part.length, i<5; i++) { %>
+    <tbody>
+  		<td><img src="http://avatar.leagueoflegends.com/<%=info.platforma%>/<%=info.part[i]%>.png" style="max-width: 50px;"> <%=info.part[i]%></td>
+      <td><%= info.champ[i] %></td>
+  		<td><%= info.s1[i] %></td>
+  		<td><%= info.s2[i] %></td>
+  		<% } %>
+  </tbody>
+</table>
+  		 <br>
+       VS    	
+<bR>
+
+ <table class="table">
+  <thead class="thead-inverse">
+<tr>
+      <th>Drużyna czerwona</th>
+      <th>Postać</th>
+      <th>Wygrane</th>
+      <th>Przegrane</th>
+    </tr>
+    </thead>
+    <% for(var i=5; i<info.part.length; i++) { %>
+    <tbody>
+      <td><img src="http://avatar.leagueoflegends.com/<%=info.platforma%>/<%=info.part[i]%>.png" style="max-width: 50px;"> <%=info.part[i]%></td>
+      <td><%= info.champ[i] %></td>
+      <td><%= info.s1[i] %></td>
+      <td><%= info.s2[i] %></td>
+      <% } %>
+  </tbody>
+</table>
+  		
+
+  		
+</div>
+</div>
+    <% } %>
+    <% } %>
+    </body>
+    </html>
+

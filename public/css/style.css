@@ -1,0 +1,104 @@
+body {
+	background-image: url("background.jpg");
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding-top: 80px;
+    color: #984843;
+}
+
+.navbar-fixed-top .nav {
+    padding: 30px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 120px;
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
+
+.rotacja{
+	border-radius: 15px;
+	background: #233237;
+	border: solid 1px #233237;
+	margin: 3px;
+	padding: 1px;
+	max-width: 80px;
+}
+#divrotacja{
+
+	border: solid 3px #233237;
+	border-radius: 15px;
+	background: black;
+}
+hr.postline{
+border-top: 3px double #EAC67A;
+ 
+}
+.news{
+	opacity: 0.9;
+	border-radius: 5px;
+	border: solid 1px #233237;
+	background-color: #18121E;
+	padding: 3px;
+	margin-top: 2px;
+}
+#title{
+	color: #EAC67A;
+}
+p#main{
+	overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+a{
+	text-decoration: none;
+}
+#logreg{
+	opacity: 0.9;
+	border-radius: 5px;
+	border: solid 1px #233237;
+	background-color: #18121E;
+	padding: 3px;
+}
+#register{
+	position: absolute;
+}
+.addnews{
+	width: 723px;
+	height: 40px;
+	padding-bottom: 1px;
+}
+#newsform{
+	padding: 10px;
+	margin: 10px;
+}
+#gamesearch{
+	margin: 1px;
+}
+#userpost{
+	max-width: 50px;
+}
+#news{
+	opacity: 0.9;
+	border-radius: 5px;
+	border: solid 1px #233237;
+	background-color: #18121E;
+	padding: 3px;
+	margin-top: 2px;
+}
+p#newsFull{
+	
+}
